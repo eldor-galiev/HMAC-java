@@ -20,7 +20,7 @@
 
 ```json
 {
-  "hmacAlg": "SHA256",
+  "hmacAlg": "HmacSHA256",
   "secret": "your-base64-encoded-secret",
   "listenPort": 8080,
   "maxMsgSizeBytes": 1048576

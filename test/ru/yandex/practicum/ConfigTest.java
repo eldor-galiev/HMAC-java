@@ -19,7 +19,7 @@ class ConfigTest {
     void load_ReturnsConfig_WithValidValues() throws IOException {
         String configContent = """
             {
-                "hmacAlg": "SHA256",
+                "hmacAlg": "HmacSHA256",
                 "secret": "UNja/k6B+B4kP2oz0WDg6EJ9C+rg8mWjjgOaHVnciyc=",
                 "listenPort": 8080,
                 "maxMsgSizeBytes": 1048576
@@ -30,7 +30,7 @@ class ConfigTest {
 
         AppConfig config = AppConfig.load(configFile);
 
-        assertEquals("SHA256", config.getHmacAlg());
+        assertEquals("HmacSHA256", config.getHmacAlg());
         assertArrayEquals(Base64.getDecoder().decode("UNja/k6B+B4kP2oz0WDg6EJ9C+rg8mWjjgOaHVnciyc="), config.getSecret());
         assertEquals(8080, config.getListenPort());
         assertEquals(1048576, config.getMaxMsgSizeBytes());
@@ -53,7 +53,7 @@ class ConfigTest {
     void load_ThrowsException_WhenMissingSecret() throws IOException {
         String configContent = """
             {
-                "hmacAlg": "SHA256",
+                "hmacAlg": "HmacSHA256",
                 "listenPort": 8080
             }
             """;
@@ -67,7 +67,7 @@ class ConfigTest {
     void load_ThrowsException_WhenInvalidBase64Secret() throws IOException {
         String configContent = """
             {
-                "hmacAlg": "SHA256",
+                "hmacAlg": "HmacSHA256",
                 "secret": "not-base64!",
                 "listenPort": 8080
             }

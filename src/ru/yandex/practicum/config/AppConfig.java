@@ -43,7 +43,7 @@ public class AppConfig {
             JsonObject json = GSON.fromJson(content, JsonObject.class);
 
             AppConfig config = new AppConfig();
-            config.hmacAlg = getString(json, "hmacAlg", "SHA256");
+            config.hmacAlg = getString(json, "hmacAlg", "HmacSHA256");
             config.listenPort = getInt(json, "listenPort", 8080);
             config.maxMsgSizeBytes = getInt(json, "maxMsgSizeBytes", 1048576);
 

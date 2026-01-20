@@ -13,7 +13,7 @@ class HmacServiceTest {
     @BeforeEach
     void setUp() {
         byte[] testSecret = "test-secret-key-123".getBytes();
-        hmacService = new HmacService(testSecret, "SHA256");
+        hmacService = new HmacService(testSecret, "HmacSHA256");
     }
 
     @Test
